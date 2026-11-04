@@ -1,91 +1,62 @@
-# Virtual Retail Management System – SQL Database
+# Virtual Retail Management System — SQL Developer Internship Project
 
-## Project Overview
+## Project overview
+A learning project that models a virtual retail database and builds data modelling, ETL planning, SQL optimization, and dynamic reporting deliverables. SQL examples target MySQL 8.x.
 
-This project is a relational database design for a Virtual Retail Management System. The purpose of the project is to organize and manage the major operations of an online retail business using SQL.
+## Technologies
+- MySQL 8.x and MySQL Workbench
+- SQL (DDL, joins, aggregation, CTEs, window functions, indexes)
+- Microsoft Word for technical reports
+- GitHub for version control and project documentation
 
-The database manages customer information, customer addresses, products, categories, suppliers, inventory, orders, order items, and payments.
-
-The Week 1 objective is to convert virtual retail business requirements into a clear, normalized, and scalable relational database design.
-
-## Objectives
-
-- Design a relational database for virtual retail operations.
-- Identify entities, attributes, primary keys, and foreign keys.
-- Create an Entity Relationship Diagram (ERD).
-- Apply normalization principles up to Third Normal Form (3NF).
-- Define useful indexes and data-integrity constraints.
-- Provide a scalable database architecture.
-- Prepare SQL scripts for table creation and sample queries.
-
-## Technologies Used
-
-- SQL
-- MySQL / SQL Server
-- GitHub
-- ER Diagram
-
-## Main Database Entities
-
-1. Customers
-2. Addresses
-3. Categories
-4. Suppliers
-5. Products
-6. Inventory
-7. Orders
-8. OrderItems
-9. Payments
-
-## Database Relationships
-
-- One Customer can have many Addresses.
-- One Customer can place many Orders.
-- One Category can contain many Products.
-- One Supplier can supply many Products.
-- One Product has an Inventory record in the initial design.
-- One Order can contain many OrderItems.
-- One Product can appear in many OrderItems.
-- One Order has a Payment record in the initial design.
-
-## Key Database Features
-
-- Primary keys for unique record identification.
-- Foreign keys for maintaining relationships.
-- Unique constraints for fields such as email and SKU.
-- Normalization to reduce unnecessary data duplication.
-- Indexing for commonly searched and joined columns.
-- Transaction handling for order and inventory operations.
-- Data validation for quantities, prices, and statuses.
-
-## Project Structure
-
+## Repository structure
 ```text
 virtual-retail-sql-database/
-│
 ├── README.md
-│
 ├── docs/
 │   ├── ERD.png
-│   └── Week_1_Report.docx
-│
+│   ├── Week_1_Virtual_Retail_Data_Model_Architecture.docx
+│   ├── Week_2_ETL_Planning_Report.docx
+│   ├── Week_3_SQL_Query_Optimization_Report.docx
+│   ├── Week_3_Benchmark_Evidence_Addendum.docx
+│   ├── Week_4_Dynamic_Reporting_and_Data_Visualization_Report.docx
+│   └── Week4_Dashboard_Concept.png
 └── sql/
     ├── 01_create_tables.sql
     ├── 02_constraints_indexes.sql
-    └── 03_sample_queries.sql
+    ├── 03_sample_queries.sql
+    ├── 04_etl_staging_and_transform_examples.sql
+    ├── 05_week3_query_optimization_and_benchmark.sql
+    ├── 05_week3_benchmark_evidence.sql
+    ├── 06_demo_sample_data.sql
+    ├── 07_week2_etl_demo_rows.sql
+    ├── 08_week4_dynamic_reporting_queries.sql
+    └── 09_week4_monthly_trend_demo_seed.sql
 ```
 
-## Setup Instructions
+## Weekly work
+- **Week 1 — Data modelling:** relational schema, keys, relationships, normalization, indexing design and ERD.
+- **Week 2 — ETL planning:** sources, extraction, staging, transformation, reject handling, loading and reconciliation.
+- **Week 3 — Query optimization:** baseline and optimized SQL patterns, indexes, EXPLAIN ANALYZE and benchmark evidence capture.
+- **Week 4 — Dynamic reporting:** sales, products, inventory, customer behaviour and payment reporting with visualization concepts.
 
-1. Install MySQL or SQL Server.
-2. Create a database named `VirtualRetailDB`.
-3. Run `01_create_tables.sql` to create the main tables.
-4. Run `02_constraints_indexes.sql` to add constraints and indexes.
-5. Run `03_sample_queries.sql` to test example SQL queries.
-6. Open `docs/ERD.png` to view the database relationships.
+## Setup and execution
+1. Install MySQL Server 8.x and MySQL Workbench.
+2. Run `01_create_tables.sql` to create the database and core tables.
+3. Run `02_constraints_indexes.sql` once to create unique constraints and indexes.
+4. On a clean database only, run `06_demo_sample_data.sql` once to insert synthetic sample records. Do not re-run without clearing the demo data.
+5. Run `09_week4_monthly_trend_demo_seed.sql` once after the Week 1 seed data if you want a July–December 2026 trend demo.
+6. Run reporting and ETL scripts section by section, following the comments in each file.
+7. Use `EXPLAIN ANALYZE` and capture timings on your own machine for benchmark claims.
 
-## Week 1 Deliverable
+## Week 4 reporting period
+The Week 4 SQL file defaults to July–December 2026: `@report_start = '2026-07-01'` and `@report_end = '2027-01-01'` (exclusive). Run the optional multi-month seed script once after the Week 1 demo seed. Change these values to report on another period.
 
-This repository contains the Week 1 Data Modeling and Architecture Design deliverables for the Virtual Retail SQL Developer Internship.
+## Week 3 feedback improvement
+The benchmark addendum provides specific before/after SQL cases and blank evidence tables. Fill them with actual repeated timings and EXPLAIN ANALYZE output from your own MySQL environment before claiming measured performance improvements.
 
-The deliverables include the ERD, database design documentation, relational schema, normalization approach, indexing strategy, and SQL scripts.
+## Accuracy notes
+- The Week 4 dashboard and report mock outputs are illustrative examples, not actual database query results. Replace them with real results after executing the SQL.
+- The Week 1 Inventory table contains current stock only. Historical unit turnover requires daily `InventorySnapshots`; cost-based inventory turnover also requires COGS and average inventory value at cost.
+- Week 3 benchmark evidence must contain observed timings and execution plans from the actual MySQL environment. Do not present example values as measured results.
+- Use synthetic data only. Never commit database passwords, payment-card data, or unnecessary personal information.
